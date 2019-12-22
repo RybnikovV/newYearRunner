@@ -1,3 +1,4 @@
+import './js/main.js'
 import './js/test.js'
 
 import './css/rebot.css'

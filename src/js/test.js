@@ -1,25 +1,21 @@
-// let background ={
-//     img: "/assets/img/fon.png",
-//     parentContainer: "containerRunner",
-//     x: 0,
-//     y: 0,
-//     // height: ",
-//     // width: this.parentContainer,
-// };
+// let cnv = document.getElementsByClassName('mainScene')[0];
+// let ctx = cnv.getContext("2d");
 
-// let setting = {
-//     fps: 20,
-//     timeStep: (60/this.fps)*1000,
+// let santa = new Image();
+// santa.src = "assets/img/santa.png";
+// let santaX = 200;
+// let santaY = 100;
+
+// function d(){
+//     ctx.clearRect(santaX-1,santaY-1, 20, 45);
+//     ctx.drawImage(santa, santaX, santaY);
+
+
+
+//     santaX = santaX + .5;
+//     santaY = santaY + .5;
+//     window.requestAnimationFrame(d);
 // }
 
-// // let mover = {
-// //    step: function(){
-// //     };
-// // }
 
-// let step = setInterval(function(){
-//     document.getElementsByClassName('contaierRunner').style
-// }, setting.timeStep);
-
-let x = 0;
-document.getElementsByClassName('containerRunner')[0].style.backgroundPositionX = -10 +"px";
+// santa.onload = d;
