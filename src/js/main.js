@@ -88,20 +88,6 @@ function createDiv(className){
     return htmlEl;
 }
 
-// function calcScore(arr){
-//     score = 0;
-//
-//
-//     if (item.pos[0] + item.size[0] > player.pos[0]) {
-//         score++;
-//     };
-//
-//     score = score -
-//
-//
-// }
-
-
 let score = 0;
 let lastScore = 0;
 let maxScore = 0;
@@ -164,8 +150,17 @@ function update(dt){
         barrierArr[i].updateSprite(dt);
 
         //gameOver?
-        gameOver( barrierArr[i], player.pos[0], player.pos[1],  player.size[0], player.size[1], barrierArr[i].pos[0], barrierArr[i].pos[1], barrierArr[i].size[0], barrierArr[i].size[1]-5 );
+        gameOver( barrierArr[i], player.pos[0], player.pos[1],  player.size[0], player.size[1], barrierArr[i].pos[0], barrierArr[i].pos[1], barrierArr[i].size[0], i);
     }
+
+    //calc score
+    score = 0;
+    for (let i = 0; i < barrierArr.length; i++){
+        if(barrierArr[i].pos[0] + barrierArr[i].size[0] < player.pos[0]) score++;
+    }
+    score = score - lastScore;
+    if(score < 0) score = 0;
+    if(score >= maxScore) maxScore = score;
 };
 
 function render(){
@@ -179,22 +174,25 @@ function render(){
 
     // render barrier
     barrierArr.forEach((item) => { item.render() });
+
+    //view score
+    addScore();
 };
 
-function gameOver(item ,playerX, playerY, playerWidth, playerHeight, treeX, treeY, treeWidth){
+function gameOver(item ,playerX, playerY, playerWidth, playerHeight, treeX, treeY, treeWidth, count){
     if (playerX > treeX + treeWidth-15) return;
 
     let gameOver = playerX + playerWidth >= treeX + 5 && playerY + playerHeight >= treeY;
 
-    if(gameOver){
-        item .spriteUpdate = false;
+    if(gameOver){ 
+        item.spriteUpdate = false;
 
         item.spriteFrameY = 100;
         item.size[0] = 45;
 
         item.break = true;
 
-
+        lastScore = count + 1;
     };
 }
 
