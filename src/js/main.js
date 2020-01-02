@@ -98,8 +98,8 @@ document.getElementsByClassName('containerRunner__score')[0].append(maxScoreDiv)
 document.getElementsByClassName('containerRunner__score')[0].append(scoreDiv);
 
 function addScore(){
-    maxScoreDiv.innerHTML = `Максимальное колличетсво перепрыгнутых ёолок ${maxScore}`;
-    scoreDiv.innerHTML = `Колличество перепрыгнутых ёолок - ${score}`;
+    maxScoreDiv.innerHTML = `Max score -${maxScore}`;
+    scoreDiv.innerHTML = `Score - ${score}`;
 }
 
 let containerRunner = document.getElementsByClassName('containerRunner')[0];
